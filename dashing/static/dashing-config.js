@@ -44,4 +44,3 @@ dashboard.addWidget('convergence_widget', 'Graph', {
             });
     }
 });
-

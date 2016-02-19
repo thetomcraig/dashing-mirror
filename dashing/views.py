@@ -48,4 +48,3 @@ def home(request):
 	context = {
 	}
 	return HttpResponse(template.render(context, request))
-

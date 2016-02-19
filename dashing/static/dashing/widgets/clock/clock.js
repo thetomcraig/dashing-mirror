@@ -14,7 +14,7 @@ Dashing.widgets.Clock = function(dashboard) {
                 return i < 10 ?  '0' + i : i;
             },
             today = new Date(),
-            h = (today.getHours()%13+1),
+            h = today.getHours(),
             m = today.getMinutes(),
             s = today.getSeconds();
 
