@@ -91,7 +91,6 @@ Dashing.widgets.Weather = function(dashboard) {
             }
 
 						$.extend(self.scope, {
-								city: data.query.results.channel.location.city,
 								temp: data.query.results.channel.item.condition.temp,
 								desc: data.query.results.channel.item.condition.text
 						});

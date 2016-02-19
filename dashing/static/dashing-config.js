@@ -30,7 +30,7 @@ dashboard.addWidget('convergence_widget', 'Graph', {
 
         $.extend(this.scope, {
             title: 'Pandora Stock',
-            value: stock_value,
+            value: "$" + stock_value,
             moreInfo: '',
             data: [
 /*

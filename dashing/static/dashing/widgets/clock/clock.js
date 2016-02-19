@@ -18,9 +18,17 @@ Dashing.widgets.Clock = function(dashboard) {
             m = today.getMinutes(),
             s = today.getSeconds();
 
+			
+				var hour = h;
+				if (h%12 == 0) {
+					hour = 12;
+				} else {
+					hour = h%12;
+				}
+
         $.extend(self.scope, {
-            time: h + ':' + formatTime(m) + ':' + formatTime(s),
-            date: today.toDateString()
+            time: hour + ':' + formatTime(m),
+            date: today.toDateString('DDDD ddd')
         });
     };
     this.interval = 500;
