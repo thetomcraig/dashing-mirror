@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+{% load static from staticfiles %}
+{% load dashing_tags %}
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>{% block title %}Django Dashing{% endblock %}</title>
+    {% compress css %}
+    <link rel="stylesheet" href="{% static 'dashing/libs/jquery-gridster/jquery.gridster.css' %}">
+    <link rel="stylesheet" href="{% static 'dashing/libs/rickshaw/rickshaw.css' %}">
+    <link rel="stylesheet" href="{% static 'dashing/libs/font-awesome/font-awesome.css' %}">
+    <link rel="stylesheet" href="{% static 'dashing/dashing.css' %}">
+    {% endcompress %}
+    {% widget_styles %}
+    {% block stylesheets %}
+    {% endblock %}
+    {% widget_templates %}
+    {% block templates %}
+    {% endblock %}
+    {% block external_resources %}
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+    {% endblock %}
+    <link rel="icon" href="/assets/images/favicon.ico">
+</head>
+<body id="app" rv-on-keydown="toggleOverlay">
+    {% block main_container %}
+    <div id="container">
+        <div class="gridster fade" rv-each-grid="grids" rv-gridsterify="grid" rv-class-in="grid.active"><ul></ul></div>
+    </div>
+    {% endblock %}
+    {% compress js %}
+    <script type="text/javascript">var DASHING_STATIC = "{% static 'dashing/' %}";</script>
+    <script type="text/javascript" src="{% static 'dashing/libs/jquery-1.11.0.js' %}"></script>
+    <script type="text/javascript" src="{% static 'dashing/libs/sightglass.js' %}"></script>
+    <script type="text/javascript" src="{% static 'dashing/libs/rivets.js' %}"></script>
+    <script type="text/javascript" src="{% static 'dashing/libs/jquery-gridster/jquery.gridster.js' %}"></script>
+    <script type="text/javascript" src="{% static 'dashing/libs/preloadjs/preloadjs-0.6.1.combined.js' %}"></script>
+    <script type="text/javascript" src="{% static 'dashing/libs/moment/moment.js' %}"></script>
+    {% moment_locales %}
+
+    <script type="text/javascript" src="{% static 'dashing/version.js' %}"></script>
+    <script type="text/javascript" src="{% static 'dashing/dashing.js' %}"></script>
+    <script type="text/javascript" src="{% static 'dashing/dashing.utils.js' %}"></script>
+    <script type="text/javascript" document.body.style.backgroundColor="0"></script>
+    {% endcompress %}
+    {% widget_scripts %}
+    {% block scripts %}
+    {% endblock %}
+    {% block config_file %}
+    <script type="text/javascript" src="{% static 'dashing-config.js' %}"></script>
+		<script>
+			document.body.style.backgroundColor = "0";
+		</script>
+    {% endblock %}
+        <canvas id="myChart" width="500" height="400"></canvas>
+
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+        <script type="text/javascript" src="{% static 'js/Chart.min.js' %}"></script>
+        </script>
+    </body>
+</html>
+
+
